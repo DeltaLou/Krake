@@ -19,8 +19,8 @@ public class Krake extends Kreis {
 		super.draw(g, new Color(150, 0, 150), position);
 		linkesAuge.update(this.position);
 		rechtesAuge.update(this.position);
-		linkesAuge.draw(g, new Color(255, 255, 255), position);
-		rechtesAuge.draw(g, new Color(255, 255, 255), position);
+		linkesAuge.draw(g, new Color(255, 255, 255), linkesAuge.position);
+		rechtesAuge.draw(g, new Color(255, 255, 255), rechtesAuge.position);
 	}
 
 	public void move() {

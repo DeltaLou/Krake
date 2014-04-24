@@ -16,11 +16,12 @@ public class Auge extends Kreis {
 		this.abstand = abstand;
 	}
 
-	Pupille pupille = new Pupille(position, 10, new Vektor(10, 10));
+	Pupille pupille = new Pupille(new Vektor(15, 15), 10);
 
 	public void update(Vektor krakenPosition) {
 		position.x = krakenPosition.x + abstand.x;
 		position.y = krakenPosition.y + abstand.y;
+		pupille.update(position);
 	}
 
 	public void draw(Graphics g, Color c, Vektor p) {

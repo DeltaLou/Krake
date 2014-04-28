@@ -20,17 +20,16 @@ public class Krake extends Kreis {
 
 	public void draw(Graphics g) {
 		super.draw(g, new Color(150, 0, 150), position);
-		linkesAuge.update(this.position);
-		rechtesAuge.update(this.position);
 		linkesAuge.draw(g, new Color(255, 255, 255), linkesAuge.position);
 		rechtesAuge.draw(g, new Color(255, 255, 255), rechtesAuge.position);
 	}
 
 	public void move() {
 		// Point mousePosition = MouseInfo.getPointerInfo().getLocation();
-
 		position.x = position.x + richtung.x;
 		position.y = position.y + richtung.y;
 		richtung = richtung.drehen(3);
+		linkesAuge.update(this.position);
+		rechtesAuge.update(this.position);
 	}
 }

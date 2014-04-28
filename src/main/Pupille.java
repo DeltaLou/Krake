@@ -19,11 +19,12 @@ public class Pupille extends Kreis {
 	public void update(Vektor augenPosition) {
 		position.x = augenPosition.x + abstand.x;
 		position.y = augenPosition.y + abstand.y;
-		System.out.println("augenPosition: " + augenPosition.x + ", "
-				+ augenPosition.y);
-		System.out.println("Position: " + position.x + ", " + position.y);
-		System.out.println("abstand: " + abstand.x + ", " + abstand.y);
-
+		/*
+		 * System.out.println("augenPosition: " + augenPosition.x + ", " +
+		 * augenPosition.y); System.out.println("Position: " + position.x + ", "
+		 * + position.y); System.out.println("abstand: " + abstand.x + ", " +
+		 * abstand.y);
+		 */
 	}
 
 	public void draw(Graphics g, Color c, Vektor p) {

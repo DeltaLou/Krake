@@ -8,10 +8,10 @@ public class Fenster extends Frame {
 
 	public Fenster() { // Konstruktor
 		this.setVisible(true);
-		this.setSize(600, 400); // Fenstergrš§e einstellen
+		this.setSize(600, 400); // Fenstergrï¿½ï¿½e einstellen
 		setTitle("Krake"); // Fenstertitel setzen
 
-		// EventListener fŸr das Fenster hinzufŸgen
+		// EventListener fï¿½r das Fenster hinzufï¿½gen
 		// (notwendig, damit das Fenster geschlossen werden kann)
 		addWindowListener(new TestWindowListener()); 
 	}

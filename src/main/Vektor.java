@@ -9,6 +9,10 @@ public class Vektor {
 		y = b;
 	}
 
+	public Vektor() {
+		this(0,0);
+	}
+
 	public Vektor drehen(float gradwinkel) {
 		double winkel = 2 * Math.PI * gradwinkel / (360);
 		Vektor vektor = new Vektor(0, 0);

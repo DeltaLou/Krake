@@ -17,7 +17,7 @@ public class Kreis {
 		position = new Vektor(0, 0);
 	}
 	public Kreis(){
-		durchmesser = 0;
+		durchmesser = 10;
 		position = new Vektor(0,0);
 	}
 

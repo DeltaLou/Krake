@@ -5,9 +5,11 @@ import java.awt.Graphics;
 
 public class Auge extends Kreis {
 	Vektor abstand;
-	public enum Seite{
+
+	public enum Seite {
 		LINKS, RECHTS
 	}
+
 	public Auge(Vektor abstand, int durchmesser, Vektor pos) {
 		super(pos, durchmesser);
 		this.abstand = abstand;
@@ -17,7 +19,7 @@ public class Auge extends Kreis {
 		super(durchmesser);
 		this.abstand = abstand;
 	}
-	
+
 	public Auge(int krakenDurchmesser, int augenDurchmesser, Seite seite) {
 		super(augenDurchmesser);
 		abstand = new Vektor();
@@ -30,9 +32,8 @@ public class Auge extends Kreis {
 		abstand.y = 12 * krakenDurchmesser / 25 - augenDurchmesser / 2;
 	}
 
-	//Pupille pupille = new Pupille(new Vektor(15, 15), 10);
-	Pupille pupille = new Pupille(durchmesser, 15);
-
+	// Pupille pupille = new Pupille(new Vektor(15, 15), 10);
+	Pupille pupille = new Pupille(durchmesser, 50);
 
 	public void update(Vektor krakenPosition, Vektor richtung) {
 		position.x = krakenPosition.x + abstand.x;

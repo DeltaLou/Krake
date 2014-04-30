@@ -16,7 +16,7 @@ public class Krake extends Kreis {
 	// Auge rechtesAuge = new Auge(new Vektor(30, 20), 30);
 
 	Auge linkesAuge = new Auge(durchmesser, 30, Auge.Seite.LINKS);
-	Auge rechtesAuge = new Auge(durchmesser, 33, Auge.Seite.RECHTS);
+	Auge rechtesAuge = new Auge(durchmesser, 35, Auge.Seite.RECHTS);
 
 	public void draw(Graphics g) {
 		super.draw(g, new Color(150, 0, 150), position);

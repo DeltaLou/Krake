@@ -15,10 +15,20 @@ public class Pupille extends Kreis {
 		super(r);
 		this.abstand = abstand;
 	}
+	
+	public Pupille(int augenDurchmesser, int pupillenDurchmesser) {
+		super(pupillenDurchmesser);
+		//int pupillenDurchmesser = (int) (pupillenFaktor);
+		abstand = new Vektor();
+		abstand.x = augenDurchmesser/2 - pupillenDurchmesser/2;
+		abstand.y = augenDurchmesser/2 - pupillenDurchmesser/2;
+		
+	}
+
 
 	public void update(Vektor augenPosition, Vektor richtung) {
-		position.x = augenPosition.x + abstand.x + richtung.x;
-		position.y = augenPosition.y + abstand.y + richtung.y;
+		position.x = augenPosition.x + abstand.x + abstand.x/3 * richtung.x;
+		position.y = augenPosition.y + abstand.y + abstand.x/3 * richtung.y;
 		/*
 		 * System.out.println("augenPosition: " + augenPosition.x + ", " +
 		 * augenPosition.y); System.out.println("Position: " + position.x + ", "

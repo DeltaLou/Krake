@@ -5,20 +5,20 @@ import java.awt.Graphics;
 
 public class Kreis {
 	Vektor position;
-	int radius;
+	int durchmesser;
 
 	public Kreis(Vektor pos, int r) {
 		position = pos;
-		radius = r;
+		durchmesser = r;
 	}
 
 	public Kreis(int r) {
-		radius = r;
+		durchmesser = r;
 		position = new Vektor(0, 0);
 	}
 
 	public void draw(Graphics g, Color c, Vektor p) {
 		g.setColor(c);
-		g.fillOval((int) (position.x), (int) (position.y), radius, radius);
+		g.fillOval((int) (position.x), (int) (position.y), durchmesser, durchmesser);
 	}
 }

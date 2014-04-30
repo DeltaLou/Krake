@@ -36,7 +36,7 @@ public class Fenster extends Frame {
 			update();
 			repaint();
 			try {
-				Thread.sleep(50);
+				Thread.sleep(30);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -61,11 +61,12 @@ public class Fenster extends Frame {
 				|| bufferImage == null || bufferGraphics == null)
 			resetBuffer();
 		if (bufferGraphics != null) {
-			// this clears the offscreen image, not the onscreen one
+			// leert das offscreen image damit ein neues gezeichnet werden kann
 			bufferGraphics.clearRect(0, 0, bufferWidth, bufferHeight);
 
-			// calls the paintbuffer method with
+			// calls the krake with
 			// the offscreen graphics as a param
+			// Krake wird alo an ein anderes Bild gezeichnet
 			polly.draw(bufferGraphics);
 
 			// we finaly paint the offscreen image onto the onscreen image

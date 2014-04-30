@@ -16,9 +16,9 @@ public class Pupille extends Kreis {
 		this.abstand = abstand;
 	}
 
-	public void update(Vektor augenPosition) {
-		position.x = augenPosition.x + abstand.x;
-		position.y = augenPosition.y + abstand.y;
+	public void update(Vektor augenPosition, Vektor richtung) {
+		position.x = augenPosition.x + abstand.x + richtung.x;
+		position.y = augenPosition.y + abstand.y + richtung.y;
 		/*
 		 * System.out.println("augenPosition: " + augenPosition.x + ", " +
 		 * augenPosition.y); System.out.println("Position: " + position.x + ", "

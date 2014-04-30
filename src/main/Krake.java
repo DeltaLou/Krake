@@ -29,7 +29,7 @@ public class Krake extends Kreis {
 		position.x = position.x + richtung.x;
 		position.y = position.y + richtung.y;
 		richtung = richtung.drehen(3);
-		linkesAuge.update(this.position);
-		rechtesAuge.update(this.position);
+		linkesAuge.update(this.position, richtung);
+		rechtesAuge.update(this.position, richtung);
 	}
 }

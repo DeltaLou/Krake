@@ -30,10 +30,10 @@ public class Auge extends Kreis {
 
 	Pupille pupille = new Pupille(new Vektor(15, 15), 10);
 
-	public void update(Vektor krakenPosition) {
+	public void update(Vektor krakenPosition, Vektor richtung) {
 		position.x = krakenPosition.x + abstand.x;
 		position.y = krakenPosition.y + abstand.y;
-		pupille.update(position);
+		pupille.update(position, richtung);
 	}
 
 	public void draw(Graphics g, Color c, Vektor p) {

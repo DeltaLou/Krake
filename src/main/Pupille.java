@@ -17,7 +17,6 @@ public class Pupille extends Kreis {
 	}
 
 	public Pupille(int augenDurchmesser, int pupillenFaktor) {
-		super();
 		durchmesser = augenDurchmesser * pupillenFaktor / 100;
 		System.out.println(durchmesser);
 		abstand = new Vektor();

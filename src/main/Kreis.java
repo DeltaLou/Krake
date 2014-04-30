@@ -7,22 +7,24 @@ public class Kreis {
 	Vektor position;
 	int durchmesser;
 
-	public Kreis(Vektor pos, int r) {
+	public Kreis(Vektor pos, int d) {
 		position = pos;
-		durchmesser = r;
+		durchmesser = d;
 	}
 
-	public Kreis(int r) {
-		durchmesser = r;
-		position = new Vektor(0, 0);
+	public Kreis(int d) {
+		this();
+		durchmesser = d;
 	}
-	public Kreis(){
+
+	public Kreis() {
 		durchmesser = 10;
-		position = new Vektor(0,0);
+		position = new Vektor(0, 0);
 	}
 
 	public void draw(Graphics g, Color c, Vektor p) {
 		g.setColor(c);
-		g.fillOval((int) (position.x), (int) (position.y), durchmesser, durchmesser);
+		g.fillOval((int) (position.x), (int) (position.y), durchmesser,
+				durchmesser);
 	}
 }

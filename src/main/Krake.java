@@ -10,18 +10,22 @@ public class Krake extends Kreis {
 
 	public Krake(Vektor pos, int r) {
 		super(pos, r);
+		for (int i = 0; i<=7; i++){
+			tentakel[i] = new Tentakel(i,this.getRadius()); 
+		}
 	}
-
-	// Auge linkesAuge = new Auge(new Vektor(5, 20), 30);
-	// Auge rechtesAuge = new Auge(new Vektor(30, 20), 30);
 
 	Auge linkesAuge = new Auge(durchmesser, 30, Auge.Seite.LINKS);
 	Auge rechtesAuge = new Auge(durchmesser, 35, Auge.Seite.RECHTS);
+	Tentakel[] tentakel = new Tentakel[8];
 
 	public void draw(Graphics g) {
 		super.draw(g, new Color(150, 0, 150), position);
 		linkesAuge.draw(g, new Color(255, 255, 255), linkesAuge.position);
 		rechtesAuge.draw(g, new Color(255, 255, 255), rechtesAuge.position);
+		for (int i = 0; i<=7; i++){
+			tentakel[i].draw(g, new Color(150, 0, 150)); 
+		}
 	}
 
 	public void move() {
@@ -31,5 +35,8 @@ public class Krake extends Kreis {
 		richtung = richtung.drehen(3);
 		linkesAuge.update(this.position, richtung);
 		rechtesAuge.update(this.position, richtung);
+		for (int i = 0; i<=7; i++){
+			tentakel[i].update(position); 
+		}
 	}
 }

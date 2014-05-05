@@ -32,7 +32,7 @@ public class Krake extends Kreis {
 		// Point mousePosition = MouseInfo.getPointerInfo().getLocation();
 		position.x = position.x + richtung.x;
 		position.y = position.y + richtung.y;
-		richtung = richtung.drehen(3);
+		richtung.drehen(3);
 		for (int i = 0; i<=7; i++){
 			tentakel[i].update(position); 
 		}

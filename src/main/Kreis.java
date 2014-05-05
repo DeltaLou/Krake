@@ -28,14 +28,19 @@ public class Kreis {
 		g.fillOval((int) (position.x), (int) (position.y), durchmesser,
 				durchmesser);
 	}
-/*	public int getRadius(int durchmesser){
+	public int getRadius(){
 		return durchmesser/2;
 	}
+	public void setRadius(int radius){
+		durchmesser = 2 * radius;
+	}
+	public Vektor getMittelpunkt (){
+		Vektor mittelpunkt = new Vektor(position.x+getRadius(), position.y+getRadius());
+		return mittelpunkt;
+	}
 	public void setMittelpunkt (Vektor mittelpunkt){
-		this.mittelpunkt= mittelpunkt;
+		position.x = mittelpunkt.x - getRadius();
+		position.y = mittelpunkt.y - getRadius();
 		
 	}
-	public Vektor getMittelpunkt (Vektor position, int durchmesser){
-		return 
-	}*/
 }

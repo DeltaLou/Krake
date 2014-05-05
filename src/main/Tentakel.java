@@ -15,7 +15,7 @@ int nummer;
 	}
 	
 	public void update(Vektor krakenPosition){
-		abstand.drehen(60+30*nummer);
+		abstand = abstand.drehen(60+30*nummer);
 		position.x = krakenPosition.x + abstand.x;
 		position.y = krakenPosition.y + abstand.y;
 		System.out.println("Nummer: " + nummer + "; Position:"+ position.x + "," + position.y);

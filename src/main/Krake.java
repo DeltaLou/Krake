@@ -21,11 +21,11 @@ public class Krake extends Kreis {
 
 	public void draw(Graphics g) {
 		super.draw(g, new Color(150, 0, 150), position);
-		linkesAuge.draw(g, new Color(255, 255, 255), linkesAuge.position);
-		rechtesAuge.draw(g, new Color(255, 255, 255), rechtesAuge.position);
 		for (int i = 0; i<=7; i++){
 			tentakel[i].draw(g, new Color(150, 0, 150)); 
 		}
+		linkesAuge.draw(g, new Color(255, 255, 255), linkesAuge.position);
+		rechtesAuge.draw(g, new Color(255, 255, 255), rechtesAuge.position);
 	}
 
 	public void move() {
@@ -33,10 +33,10 @@ public class Krake extends Kreis {
 		position.x = position.x + richtung.x;
 		position.y = position.y + richtung.y;
 		richtung = richtung.drehen(3);
-		linkesAuge.update(this.position, richtung);
-		rechtesAuge.update(this.position, richtung);
 		for (int i = 0; i<=7; i++){
 			tentakel[i].update(position); 
 		}
+		linkesAuge.update(this.position, richtung);
+		rechtesAuge.update(this.position, richtung);
 	}
 }

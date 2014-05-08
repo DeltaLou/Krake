@@ -14,10 +14,12 @@ public class Vektor {
 	}
 
 	public void drehen(float gradwinkel) {
-		double winkel = 2 * Math.PI * gradwinkel / (360);
+		double winkel = 2 * Math.PI * gradwinkel / (360); 
 		//Vektor vektor = new Vektor(0, 0);
-		this.x = (float) (x * Math.cos(winkel) - y * Math.sin(winkel));
-		this.y = (float) (x * Math.sin(winkel) + y * Math.cos(winkel));
+		float xNeu = (float) (x * Math.cos(winkel) - y * Math.sin(winkel));
+		float yNeu = (float) (x * Math.sin(winkel) + y * Math.cos(winkel));
+		this.x = xNeu;
+		this.y = yNeu;
 		//return vektor;
 	}
 }

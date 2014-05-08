@@ -34,7 +34,7 @@ public class Krake extends Kreis {
 		position.y = position.y + richtung.y;
 		richtung.drehen(3);
 		for (int i = 0; i<=7; i++){
-			tentakel[i].update(position); 
+			tentakel[i].update(getMittelpunkt()); 
 		}
 		linkesAuge.update(this.position, richtung);
 		rechtesAuge.update(this.position, richtung);

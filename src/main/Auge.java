@@ -24,12 +24,12 @@ public class Auge extends Kreis {
 		super(augenRadius);
 		abstand = new Vektor();
 		if (seite == Seite.LINKS) {
-			abstand.x = (4 * krakenRadius / 7 - augenRadius);
+			abstand.x = -(krakenRadius / 2- augenRadius/7);
 		}
 		if (seite == Seite.RECHTS) {
-			abstand.x = 10 * krakenRadius / 7 - augenRadius;
+			abstand.x = (krakenRadius /2 - augenRadius/7);
 		}
-		abstand.y = 24 * krakenRadius / 25 - augenRadius;
+		abstand.y = - krakenRadius/25;
 	}
 
 	// Pupille pupille = new Pupille(new Vektor(15, 15), 10);

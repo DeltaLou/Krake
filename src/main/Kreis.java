@@ -4,43 +4,46 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Kreis {
-	Vektor position;
-	int durchmesser;
+	Vektor mittelpunkt;
+	int radius;
 
 	
-	public Kreis(Vektor pos, int d) {
-		position = pos;
-		durchmesser = d;
+	public Kreis(Vektor m, int r) {
+		mittelpunkt = m;
+		radius = r;
 	}
 
-	public Kreis(int d) {
+	public Kreis(int r) {
 		this();
-		durchmesser = d;
+		radius = r;
 	}
 
 	public Kreis() {
-		durchmesser = 10;
-		position = new Vektor(0, 0);
+		radius = 10;
+		mittelpunkt = new Vektor(radius, radius);
 	}
 
 	public void draw(Graphics g, Color c, Vektor p) {
 		g.setColor(c);
+		int durchmesser = 2*radius;
+		Vektor position = new Vektor();
+		position.x = mittelpunkt.x-radius;
+		position.y = mittelpunkt.y -radius;
 		g.fillOval((int) (position.x), (int) (position.y), durchmesser,
 				durchmesser);
 	}
 	public int getRadius(){
-		return durchmesser/2;
+		return radius;
 	}
 	public void setRadius(int radius){
-		durchmesser = 2 * radius;
+		this.radius = radius;
 	}
 	public Vektor getMittelpunkt (){
-		Vektor mittelpunkt = new Vektor(position.x+getRadius(), position.y+getRadius());
 		return mittelpunkt;
 	}
 	public void setMittelpunkt (Vektor mittelpunkt){
-		position.x = mittelpunkt.x - getRadius();
-		position.y = mittelpunkt.y - getRadius();
+		this.mittelpunkt = mittelpunkt;
+
 		
 	}
 }

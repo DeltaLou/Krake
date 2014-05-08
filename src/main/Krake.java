@@ -15,28 +15,28 @@ public class Krake extends Kreis {
 		}
 	}
 
-	Auge linkesAuge = new Auge(durchmesser, 30, Auge.Seite.LINKS);
-	Auge rechtesAuge = new Auge(durchmesser, 35, Auge.Seite.RECHTS);
+	Auge linkesAuge = new Auge(radius, 30, Auge.Seite.LINKS);
+	Auge rechtesAuge = new Auge(radius, 35, Auge.Seite.RECHTS);
 	Tentakel[] tentakel = new Tentakel[8];
 
 	public void draw(Graphics g) {
-		super.draw(g, new Color(150, 0, 150), position);
+		super.draw(g, new Color(150, 0, 150), mittelpunkt);
 		for (int i = 0; i<=7; i++){
 			tentakel[i].draw(g, new Color(150, 0, 150)); 
 		}
-		linkesAuge.draw(g, new Color(255, 255, 255), linkesAuge.position);
-		rechtesAuge.draw(g, new Color(255, 255, 255), rechtesAuge.position);
+		linkesAuge.draw(g, new Color(255, 255, 255), linkesAuge.mittelpunkt);
+		rechtesAuge.draw(g, new Color(255, 255, 255), rechtesAuge.mittelpunkt);
 	}
 
 	public void move() {
 		// Point mousePosition = MouseInfo.getPointerInfo().getLocation();
-		position.x = position.x + richtung.x;
-		position.y = position.y + richtung.y;
+		mittelpunkt.x = mittelpunkt.x + richtung.x;
+		mittelpunkt.y = mittelpunkt.y + richtung.y;
 		richtung.drehen(3);
 		for (int i = 0; i<=7; i++){
 			tentakel[i].update(getMittelpunkt()); 
 		}
-		linkesAuge.update(this.position, richtung);
-		rechtesAuge.update(this.position, richtung);
+		linkesAuge.update(this.mittelpunkt, richtung);
+		rechtesAuge.update(this.mittelpunkt, richtung);
 	}
 }

@@ -20,29 +20,29 @@ public class Auge extends Kreis {
 		this.abstand = abstand;
 	}
 
-	public Auge(int krakenDurchmesser, int augenDurchmesser, Seite seite) {
-		super(augenDurchmesser);
+	public Auge(int krakenRadius, int augenRadius, Seite seite) {
+		super(augenRadius);
 		abstand = new Vektor();
 		if (seite == Seite.LINKS) {
-			abstand.x = (2 * krakenDurchmesser / 7 - augenDurchmesser / 2);
+			abstand.x = (4 * krakenRadius / 7 - augenRadius);
 		}
 		if (seite == Seite.RECHTS) {
-			abstand.x = 5 * krakenDurchmesser / 7 - augenDurchmesser / 2;
+			abstand.x = 10 * krakenRadius / 7 - augenRadius;
 		}
-		abstand.y = 12 * krakenDurchmesser / 25 - augenDurchmesser / 2;
+		abstand.y = 24 * krakenRadius / 25 - augenRadius;
 	}
 
 	// Pupille pupille = new Pupille(new Vektor(15, 15), 10);
-	Pupille pupille = new Pupille(durchmesser, 50);
+	Pupille pupille = new Pupille(radius, 50);
 
 	public void update(Vektor krakenPosition, Vektor richtung) {
-		position.x = krakenPosition.x + abstand.x;
-		position.y = krakenPosition.y + abstand.y;
-		pupille.update(position, richtung);
+		mittelpunkt.x = krakenPosition.x + abstand.x;
+		mittelpunkt.y = krakenPosition.y + abstand.y;
+		pupille.update(mittelpunkt, richtung);
 	}
 
 	public void draw(Graphics g, Color c, Vektor p) {
 		super.draw(g, c, p);
-		pupille.draw(g, new Color(0, 0, 0), pupille.position);
+		pupille.draw(g, new Color(0, 0, 0), pupille.mittelpunkt);
 	}
 }

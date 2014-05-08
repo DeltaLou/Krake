@@ -16,18 +16,18 @@ public class Pupille extends Kreis {
 		this.abstand = abstand;
 	}
 
-	public Pupille(int augenDurchmesser, int pupillenFaktor) {
-		durchmesser = augenDurchmesser * pupillenFaktor / 100;
-		System.out.println(durchmesser);
+	public Pupille(int augenRadius, int pupillenFaktor) {
+		radius = augenRadius * pupillenFaktor / 100;
+		System.out.println(radius);
 		abstand = new Vektor();
-		abstand.x = augenDurchmesser / 2 - durchmesser / 2;
-		abstand.y = augenDurchmesser / 2 - durchmesser / 2;
+		//abstand.x = augenRadius - radius;
+		//abstand.y = augenRadius - radius;
 
 	}
 
-	public void update(Vektor augenPosition, Vektor richtung) {
-		position.x = augenPosition.x + abstand.x + durchmesser / 4 * richtung.x;
-		position.y = augenPosition.y + abstand.y + durchmesser / 4 * richtung.y;
+	public void update(Vektor augenMittelpunkt, Vektor richtung) {
+		mittelpunkt.x = augenMittelpunkt.x + radius / 2 * richtung.x;
+		mittelpunkt.y = augenMittelpunkt.y + radius / 2 * richtung.y;
 		/*
 		 * System.out.println("augenPosition: " + augenPosition.x + ", " +
 		 * augenPosition.y); System.out.println("Position: " + position.x + ", "

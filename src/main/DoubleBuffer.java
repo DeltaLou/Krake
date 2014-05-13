@@ -2,6 +2,7 @@ package main;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 
 public class DoubleBuffer extends Panel {
 
@@ -16,8 +17,8 @@ public class DoubleBuffer extends Panel {
 	// class variables
 	private int bufferWidth;
 	private int bufferHeight;
-	private Image bufferImage;
-	private Graphics bufferGraphics;
+	private BufferedImage bufferImage;
+	private Graphics2D bufferGraphics;
 
 	@Override
 	public void paint(Graphics g) {
@@ -52,9 +53,10 @@ public class DoubleBuffer extends Panel {
 		}
 		System.gc();
 
-		// create the new image with the size of the panel
-		bufferImage = createImage(bufferWidth, bufferHeight);
-		bufferGraphics = bufferImage.getGraphics();
+		bufferImage = new BufferedImage(bufferWidth, bufferHeight,
+				BufferedImage.TYPE_INT_RGB);
+		bufferGraphics = bufferImage.createGraphics();
+		bufferGraphics.setRenderingHint (RenderingHints.KEY_ANTIALIASING,   RenderingHints.VALUE_ANTIALIAS_ON);
 	}
 
 	public void paintBuffer(Graphics g) {

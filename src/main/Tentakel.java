@@ -18,7 +18,7 @@ int nummer;
 	public void update(Vektor krakenPosition){
 		position.x = krakenPosition.x + abstand.x;
 		position.y = krakenPosition.y + abstand.y;
-		System.out.println("Nummer: " + nummer + "; Position:"+ position.x + "," + position.y);
+		//System.out.println("Nummer: " + nummer + "; Position:"+ position.x + "," + position.y);
 	}
 	Kreis arm = new Kreis(position, 30);
 	public void draw (Graphics g, Color c){

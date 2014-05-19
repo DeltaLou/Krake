@@ -36,7 +36,7 @@ public class Pupille extends Kreis {
 		 */
 	}
 
-	public void draw(Graphics g, Color c, Vektor p) {
-		super.draw(g, c, p);
+	public void draw(Graphics g, Color c) {
+		super.draw(g, c);
 	}
 }

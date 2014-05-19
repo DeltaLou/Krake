@@ -23,7 +23,7 @@ public class Kreis {
 		mittelpunkt = new Vektor(radius, radius);
 	}
 
-	public void draw(Graphics g, Color c, Vektor p) {
+	public void draw(Graphics g, Color c) {
 		g.setColor(c);
 		int durchmesser = 2*radius;
 		Vektor position = new Vektor();

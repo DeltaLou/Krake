@@ -41,8 +41,8 @@ public class Auge extends Kreis {
 		pupille.update(mittelpunkt, richtung);
 	}
 
-	public void draw(Graphics g, Color c, Vektor p) {
-		super.draw(g, c, p);
-		pupille.draw(g, new Color(0, 0, 0), pupille.mittelpunkt);
+	public void draw(Graphics g, Color c) {
+		super.draw(g, c);
+		pupille.draw(g, new Color(0, 0, 0));
 	}
 }

@@ -20,12 +20,12 @@ public class Krake extends Kreis {
 	Tentakel[] tentakel = new Tentakel[8];
 
 	public void draw(Graphics g) {
-		super.draw(g, new Color(150, 0, 150), mittelpunkt);
+		super.draw(g, new Color(150, 0, 150));
 		for (int i = 0; i<=7; i++){
 			tentakel[i].draw(g, new Color(150, 0, 150)); 
 		}
-		linkesAuge.draw(g, new Color(255, 255, 255), linkesAuge.mittelpunkt);
-		rechtesAuge.draw(g, new Color(255, 255, 255), rechtesAuge.mittelpunkt);
+		linkesAuge.draw(g, new Color(255, 255, 255));
+		rechtesAuge.draw(g, new Color(255, 255, 255));
 	}
 
 	public void move() {

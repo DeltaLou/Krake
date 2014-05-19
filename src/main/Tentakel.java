@@ -7,13 +7,15 @@ public class Tentakel{
 Vektor abstand = new Vektor();
 Vektor pos = new Vektor();
 int nummer;
+int armZahl;
 
 	public Tentakel(int num, int krakenRadius){
 		this.nummer = num;
 		abstand.x = 0;
 		abstand.y = -krakenRadius;
 		abstand.drehen(108+20*nummer);
-		for (int i = 0; i<=7; i++){
+		armZahl = 10;
+		for (int i = 0; i<armZahl; i++){
 			armKreis[i] = new Kreis(pos, krakenRadius/20); 
 		}
 	}
@@ -28,7 +30,7 @@ int nummer;
 	Kreis[] armKreis = new Kreis[10];
 	float tentakelBreite = 30;
 	public void draw (Graphics g, Color c){
-		for (int i = 0; i<=10; i++){
+		for (int i = 0; i<armZahl; i++){
 			armKreis[i].draw(g, c, pos); 
 		}
 

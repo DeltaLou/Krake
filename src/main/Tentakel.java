@@ -13,8 +13,9 @@ int armLängenZahl = 30;
 		abstand.x = 0;
 		abstand.y = -krakenRadius;
 		abstand.drehen(108+20*nummer);
+		int r = krakenRadius/5;
 		for (int i = 0; i<armLängenZahl; i++){
-			armKreis[i] = new Kreis(new Vektor(), krakenRadius/20); 
+			armKreis[i] = new Kreis(new Vektor(),r-i); 
 		}
 	}
 	Kreis[] armKreis = new Kreis[armLängenZahl];
@@ -25,9 +26,7 @@ int armLängenZahl = 30;
 		for (int i = 0; i<armLängenZahl; i++){
 			armKreis[i].mittelpunkt.x= pos.x + abstand.x*i/10;
 			armKreis[i].mittelpunkt.y= pos.y+abstand.y*i/10;
-			//armKreis[i].mittelpunkt.x= krakenPosition.x + abstand.x + abstand.x*i/5;
-			//armKreis[i].mittelpunkt.y= krakenPosition.y + abstand.y + abstand.y*i/5;
-		}
+			}
 		//System.out.println("Nummer: " + nummer + "; Position:"+ pos.x + "," + pos.y);
 	}
 

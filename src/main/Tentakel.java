@@ -1,48 +1,56 @@
 package main;
 
+import java.awt.*;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Tentakel{
-Vektor abstand = new Vektor();
-Vektor pos = new Vektor();
-int nummer;
-int armLängenZahl = 30;
-	public Tentakel(int num, int krakenRadius){
+public class Tentakel {
+	Vektor abstand = new Vektor();
+	Vektor pos = new Vektor();
+	int nummer;
+	int armLängenZahl = 15;
+
+	public Tentakel(int num, int krakenRadius) {
 		this.nummer = num;
 		abstand.x = 0;
 		abstand.y = -krakenRadius;
-		abstand.drehen(108+20*nummer);
-		int r = krakenRadius/5;
-		for (int i = 0; i<armLängenZahl; i++){
-			armKreis[i] = new Kreis(new Vektor(),r-i); 
+		abstand.drehen(109 + 20 * nummer);
+		int r = krakenRadius / 5;
+		for (int i = 0; i < armLängenZahl; i++) {
+			armKreis[i] = new Kreis(new Vektor(), r - i);
 		}
 	}
+
 	Kreis[] armKreis = new Kreis[armLängenZahl];
 	Vektor position = new Vektor();
-	public void update(Vektor krakenPosition){
+	Vektor kuVe = new Vektor();
+	int j= 0;
+
+	public void update(Vektor krakenPosition) {
 		pos.x = krakenPosition.x + abstand.x;
 		pos.y = krakenPosition.y + abstand.y;
 		armKreis[0].mittelpunkt.x = pos.x;
 		armKreis[0].mittelpunkt.y = pos.y;
-		for (int i = 1; i<armLängenZahl; i++){
-			//armKreis[i].mittelpunkt.x= pos.x + abstand.x*i/10;
-			//armKreis[i].mittelpunkt.y= pos.y + abstand.y*i/10;
-			armKreis[i].mittelpunkt.x= armKreis[i-1].mittelpunkt.x + abstand.x*armKreis[i].radius/100;
-			armKreis[i].mittelpunkt.y= armKreis[i-1].mittelpunkt.y + abstand.y*armKreis[i].radius/100;
-			}
-		//System.out.println("Nummer: " + nummer + "; Position:"+ pos.x + "," + pos.y);
+			kuVe.x = abstand.x;
+			kuVe.y = abstand.y;
+
+		j=j+1;
+		for (int i = 1; i < armLängenZahl; i++) {
+			kuVe.drehen((float) Math.sin(i * 1.5+j/50.0) * 50);
+			System.out.println(kuVe.x + "," + kuVe.y);
+			armKreis[i].mittelpunkt.x = armKreis[i - 1].mittelpunkt.x + (kuVe.x+abstand.x)/2 * i /armLängenZahl
+					* armKreis[i].radius / 30;
+			armKreis[i].mittelpunkt.y = armKreis[i - 1].mittelpunkt.y + (kuVe.y+abstand.y)/2 *i/armLängenZahl
+					* armKreis[i].radius / 30;
+		}
 	}
 
 	float tentakelBreite = 30;
 
-	public void draw (Graphics g, Color c){
+	public void draw(Graphics g, Color c) {
 
-		for (int i = 0; i<armLängenZahl; i++){
-		//	pos.x = position.x + abstand.x*i/20;
-		//	pos.y = position.y + abstand.y*i/20;
-			armKreis[i].draw(g, c); 
+		for (int i = 0; i < armLängenZahl; i++) {
+			armKreis[i].draw(g, c);
 		}
-
 	}
 }

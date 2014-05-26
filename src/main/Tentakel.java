@@ -8,7 +8,7 @@ public class Tentakel {
 	Vektor abstand = new Vektor();
 	Vektor pos = new Vektor();
 	int nummer;
-	int armLängenZahl = 15;
+	int armLängenZahl = 10;
 
 	public Tentakel(int num, int krakenRadius) {
 		this.nummer = num;
@@ -31,7 +31,7 @@ public class Tentakel {
 		pos.y = krakenPosition.y + abstand.y;
 		armKreis[0].mittelpunkt.x = pos.x;
 		armKreis[0].mittelpunkt.y = pos.y;
-			kuVe.x = abstand.x;
+			/*kuVe.x = abstand.x;
 			kuVe.y = abstand.y;
 
 		j=j+1;
@@ -42,6 +42,20 @@ public class Tentakel {
 					* armKreis[i].radius / 30;
 			armKreis[i].mittelpunkt.y = armKreis[i - 1].mittelpunkt.y + (kuVe.y+abstand.y)/2 *i/armLängenZahl
 					* armKreis[i].radius / 30;
+		}*/
+		for (int i = 1; i < armLängenZahl; i++) {
+			j=j+1;
+			armKreis[i].mittelpunkt.x = armKreis[0].mittelpunkt.x + (float)Math.sin(i * 1.5+j/50)*2;
+			armKreis[i].mittelpunkt.y = armKreis[i-1].mittelpunkt.y - armKreis[i].radius;
+		}
+		for (int i = 1; i < armLängenZahl; i++) {
+			//arme zum nullpunkt verschieben, drehen, zurück verschieben
+			armKreis[i].mittelpunkt.x = armKreis[i].mittelpunkt.x-pos.x;
+			armKreis[i].mittelpunkt.y = armKreis[i].mittelpunkt.y-pos.y;
+			armKreis[i].mittelpunkt.drehen(109 + 20 * nummer);
+			armKreis[i].mittelpunkt.x = armKreis[i].mittelpunkt.x+pos.x;
+			armKreis[i].mittelpunkt.y = armKreis[i].mittelpunkt.y+pos.y;
+
 		}
 	}
 

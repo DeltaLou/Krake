@@ -31,21 +31,10 @@ public class Tentakel {
 		pos.y = krakenPosition.y + abstand.y;
 		armKreis[0].mittelpunkt.x = pos.x;
 		armKreis[0].mittelpunkt.y = pos.y;
-			/*kuVe.x = abstand.x;
-			kuVe.y = abstand.y;
-
-		j=j+1;
-		for (int i = 1; i < armLängenZahl; i++) {
-			kuVe.drehen((float) Math.sin(i * 1.5+j/50.0) * 50);
-			System.out.println(kuVe.x + "," + kuVe.y);
-			armKreis[i].mittelpunkt.x = armKreis[i - 1].mittelpunkt.x + (kuVe.x+abstand.x)/2 * i /armLängenZahl
-					* armKreis[i].radius / 30;
-			armKreis[i].mittelpunkt.y = armKreis[i - 1].mittelpunkt.y + (kuVe.y+abstand.y)/2 *i/armLängenZahl
-					* armKreis[i].radius / 30;
-		}*/
+			
 		for (int i = 1; i < armLängenZahl; i++) {
 			j=j+1;
-			armKreis[i].mittelpunkt.x = armKreis[0].mittelpunkt.x + (float)Math.sin(i * 1.5+j/50)*2;
+			armKreis[i].mittelpunkt.x = armKreis[0].mittelpunkt.x + (float)Math.sin(i * 1.5+j/70.0)*3;
 			armKreis[i].mittelpunkt.y = armKreis[i-1].mittelpunkt.y - armKreis[i].radius;
 		}
 		for (int i = 1; i < armLängenZahl; i++) {

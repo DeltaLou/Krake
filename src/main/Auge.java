@@ -10,15 +10,6 @@ public class Auge extends Kreis {
 		LINKS, RECHTS
 	}
 
-	public Auge(Vektor abstand, int durchmesser, Vektor pos) {
-		super(pos, durchmesser);
-		this.abstand = abstand;
-	}
-
-	public Auge(Vektor abstand, int durchmesser) {
-		super(durchmesser);
-		this.abstand = abstand;
-	}
 
 	public Auge(int krakenRadius, int augenRadius, Seite seite) {
 		super(augenRadius);

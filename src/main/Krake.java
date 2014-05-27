@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.util.Random;
 
 public class Krake extends Kreis {
 	Vektor richtung = new Vektor(1, 1);
@@ -13,11 +14,18 @@ public class Krake extends Kreis {
 		for (int i = 0; i<=7; i++){
 			tentakel[i] = new Tentakel(i,this.getRadius()); 
 		}
+
+
 	}
 
 	Auge linkesAuge = new Auge(radius, 30, Auge.Seite.LINKS);
 	Auge rechtesAuge = new Auge(radius, 35, Auge.Seite.RECHTS);
 	Tentakel[] tentakel = new Tentakel[8];
+	int randWinkel=3;
+	int i = 0;
+	Random randomGenerator = new Random();
+	int randSchleife = randomGenerator.nextInt(30);
+
 
 	public void draw(Graphics g) {
 		super.draw(g, new Color(150, 0, 150));
@@ -32,9 +40,25 @@ public class Krake extends Kreis {
 		// Point mousePosition = MouseInfo.getPointerInfo().getLocation();
 		mittelpunkt.x = mittelpunkt.x + richtung.x;
 		mittelpunkt.y = mittelpunkt.y + richtung.y;
-		richtung.drehen(3);
-		for (int i = 0; i<=7; i++){
-			tentakel[i].update(getMittelpunkt()); 
+
+		if(getMittelpunkt().x>500||getMittelpunkt().x<0||getMittelpunkt().y>500||getMittelpunkt().y<0){
+			richtung.drehen(180);
+		}
+		
+		i = i+1;
+		if (i==randSchleife+1){
+			
+			randWinkel = randomGenerator.nextInt(8)-4;
+			i=0;
+			randSchleife = randomGenerator.nextInt(30);
+
+		}
+
+		richtung.drehen(randWinkel);
+
+		
+		for (int j = 0; j<=7; j++){
+			tentakel[j].update(getMittelpunkt());
 		}
 		linkesAuge.update(this.mittelpunkt, richtung);
 		rechtesAuge.update(this.mittelpunkt, richtung);

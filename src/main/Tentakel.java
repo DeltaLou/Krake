@@ -8,7 +8,7 @@ public class Tentakel {
 	Vektor abstand = new Vektor();
 	Vektor pos = new Vektor();
 	int nummer;
-	int armLängenZahl = 10;
+	int armLängenZahl = 12;
 
 	public Tentakel(int num, int körperRadius) {
 		this.nummer = num;
@@ -17,7 +17,7 @@ public class Tentakel {
 		abstand.drehen(109 + 20 * nummer);
 		int r = körperRadius / 2;
 		for (int i = 0; i < armLängenZahl; i++) {
-			armKreis[i] = new Kreis(new Vektor(), r - (i+2));
+			armKreis[i] = new Kreis(new Vektor(), r - (i));
 		}
 	}
 

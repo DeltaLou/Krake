@@ -18,14 +18,15 @@ public class Krake extends Kreis {
 
 	}
 
-	Auge linkesAuge = new Auge(radius, 30, Auge.Seite.LINKS);
-	Auge rechtesAuge = new Auge(radius, 35, Auge.Seite.RECHTS);
+	Auge linkesAuge = new Auge(radius*4/5, 27, Auge.Seite.LINKS);
+	Auge rechtesAuge = new Auge(radius*4/5, 24, Auge.Seite.RECHTS);
 	Tentakel[] tentakel = new Tentakel[8];
 	Körper körper = new Körper(mittelpunkt, radius);
 	int randWinkel=3;
 	int i = 0;
 	Random randomGenerator = new Random();
 	int randSchleife = randomGenerator.nextInt(30);
+	boolean wende=false;
 
 
 	public void draw(Graphics g) {
@@ -43,8 +44,23 @@ public class Krake extends Kreis {
 		mittelpunkt.x = mittelpunkt.x + richtung.x;
 		mittelpunkt.y = mittelpunkt.y + richtung.y;
 
-		if(getMittelpunkt().x>500||getMittelpunkt().x<0||getMittelpunkt().y>300||getMittelpunkt().y<0){
+		if(getMittelpunkt().x>400||getMittelpunkt().x<100||getMittelpunkt().y>300||getMittelpunkt().y<100){
 			richtung.drehen(180);
+			
+		/*	if (wende == false){
+				randSchleife = 30;
+				randWinkel = randomGenerator.nextInt(2)*4-2;
+				System.out.println(randWinkel);
+				wende = true;
+			}
+			
+			//
+		//	int Vorzeichen = (int)Math.random()*2-1;
+
+			
+		}
+		else{
+			wende =false;*/
 		}
 		
 		i = i+1;
@@ -62,8 +78,8 @@ public class Krake extends Kreis {
 		for (int j = 0; j<=7; j++){
 			tentakel[j].update(körper.getMittelpunkt());
 		}
-		linkesAuge.update(this.mittelpunkt, richtung);
-		rechtesAuge.update(this.mittelpunkt, richtung);
+		linkesAuge.update(körper.mittelpunkt, richtung);
+		rechtesAuge.update(körper.mittelpunkt, richtung);
 		körper.update(mittelpunkt, radius);
 	}
 }
